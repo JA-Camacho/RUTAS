@@ -5,7 +5,7 @@
             <div class="card-body">
                 <h5 class="card-title">Norte a Sur</h5>
                 <p class="card-text">Se muetran las rutas existentes</p>
-                <a routerLink="/rutas" class="btn btn-primary">Entrar</a>
+                <a [routerLink]="['/rutas', 'NORTE']" class="btn btn-primary">Entrar</a>
             </div>
         </div>
         <div class="card" style="width: 18rem;">
@@ -13,7 +13,7 @@
             <div class="card-body">
                 <h5 class="card-title">Valle a Sur</h5>
                 <p class="card-text">Se muetran las rutas existentes</p>
-                <a routerLink="/rutas" class="btn btn-primary">Entrar</a>
+                <a [routerLink]="['/rutas', 'VALLE']" class="btn btn-primary">Entrar</a>
             </div>
         </div>
     </div>

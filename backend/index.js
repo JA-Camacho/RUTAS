@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
-
+const cors = require('cors')
 const { mongoose } = require('./database');
 
 //settings
@@ -11,6 +11,7 @@ app.set('nombreApp', 'Aplicacion para dar rutas a conocer a los estudiantes');
 //Middlewares
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(cors({origin: 'http://localhost:4200'}));
 
 //Routes
 app.use('/api/admin', require('./routes/admin.routes'));

@@ -2,7 +2,14 @@ const Estudiantes = require("../models/estudiante");
 const EstudianteCtrl = {};
 
 EstudianteCtrl.getEstudiantes = async (req, res) => {
-  const estudiante = await Estudiantes.find();
+  const estudiante = await Estudiantes.find(
+    { categoria: NORTE },
+    (error, estudiante) => {
+      if (error) {
+        res.send(error);
+      }
+    }
+  );
   res.json(estudiante);
 };
 EstudianteCtrl.createEstudiantes = async (req, res) => {
@@ -12,7 +19,7 @@ EstudianteCtrl.createEstudiantes = async (req, res) => {
     contra: req.body.contra,
     carrera: req.body.carrera,
     id_rutas: req.body.id_rutas,
-    telf: req.body.telf
+    telf: req.body.telf,
   });
   await estudiante.save();
   res.json("Estado: estudiante Guardado");
@@ -30,7 +37,7 @@ EstudianteCtrl.editEstudiante = async (req, res) => {
     contra: req.body.contra,
     carrera: req.body.carrera,
     id_rutas: req.body.id_rutas,
-    telf: req.body.telf
+    telf: req.body.telf,
   };
   await Estudiantes.findByIdAndUpdate(id, { $set: estudiante }, { new: true });
   res.json("status: estudiante actualizado");

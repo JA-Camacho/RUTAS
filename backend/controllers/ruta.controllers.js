@@ -5,6 +5,27 @@ RutasCtrl.getRutas = async (req, res)=>{
     const ruta = await rutas.find();
     res.json(ruta);
 };
+
+RutasCtrl.getRutasNorte = async (req, res)=>{
+    const query =  rutas.find({ "categoria": "NORTE" });
+    query.exec((error, ruta) =>{
+        if(error){
+          res.send(error);
+        }
+        res.json(ruta);
+      });
+};
+
+RutasCtrl.getRutasValle = async (req, res)=>{
+    const query =  rutas.find({ "categoria": "VALLE" });
+    query.exec((error, ruta) =>{
+        if(error){
+          res.send(error);
+        }
+        res.json(ruta);
+      });
+};
+
 RutasCtrl.createRutas= async (req, res) =>{
     const ruta = new rutas({
         sector: req.body.sector,
@@ -14,11 +35,13 @@ RutasCtrl.createRutas= async (req, res) =>{
     await ruta.save();
     res.json('Estado: ruta Guardado');
 };
+
 RutasCtrl.getRuta = async (req, res) =>{
     console.log(req.params.id);
     const ruta = await rutas.findById(req.params.id);
     res.json(ruta);
 };
+
 RutasCtrl.editRuta = async (req, res) =>{
     const { id } = req.params;
     const ruta = {
