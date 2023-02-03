@@ -38,8 +38,13 @@ RutasCtrl.createRutas= async (req, res) =>{
 
 RutasCtrl.getRuta = async (req, res) =>{
     console.log(req.params.id);
-    const ruta = await rutas.findById(req.params.id);
-    res.json(ruta);
+    const query = rutas.find({"_id":"63dc41922d2f2a38447ec495"});
+    query.exec((error, ruta) =>{
+        if(error){
+          res.send(error);
+        }
+        res.json(ruta);
+      });
 };
 
 RutasCtrl.editRuta = async (req, res) =>{

@@ -12,8 +12,8 @@ export class RutasService {
     this.selectedRuta = new Rutas();
   }
   
-  getRuta(_id: string) {
-    return this.http.get(this.URL_API + '/' + _id);
+  getRuta(id: string) {
+    return this.http.get(this.URL_API + '/' + id);
   }
   getRutas() {
     return this.http.get(this.URL_API);

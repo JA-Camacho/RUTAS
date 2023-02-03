@@ -20,18 +20,18 @@ export class PagEstComponent implements OnInit{
   id_rutas :string = '';
   ngOnInit(): void {
     this.id_rutas = this.route.snapshot.params['id_rutas'];
-    console.log(this.id_rutas);
     this.getEstudiantes();
     this.getRutas();
   }
   getEstudiantes(){
     this.estudianteService.getEstudianteR(this.id_rutas).subscribe((res) =>{
       this.estudianteService.estudiantes = res as Estudiante[];
+      console.log(res);
     })
   }
 
   getRutas() {
-    this.rutasService.getRutas().subscribe((res) => {
+    this.rutasService.getRuta(this.id_rutas).subscribe((res) => {
       this.rutasService.rutas = res as Rutas[];
       console.log(res);
     });
