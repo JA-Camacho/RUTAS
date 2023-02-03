@@ -6,8 +6,7 @@ const EstudiantesSchema = new Schema({
     correoInst: {type: String, required: true},
     contra: {type: String, required: true},
     carrera: {type: String, required: true},
-    id_rutas: {type: String, required: true},
-    telf: {type: Number, required: true}
+    id_rutas: {type: String, required: true}
 });
 
 module.exports = mongoose.model('Estudiante', EstudiantesSchema);

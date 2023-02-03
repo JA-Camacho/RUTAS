@@ -10,7 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { RutasComponent } from './rutas/rutas.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],
