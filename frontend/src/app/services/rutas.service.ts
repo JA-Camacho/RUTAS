@@ -29,10 +29,10 @@ export class RutasService {
   }
 
   putRutas(rutas: Rutas) {
-    return this.http.put(this.URL_API + '/$(gasto._id)', rutas);
+    return this.http.put(this.URL_API + '/' + rutas._id, rutas);
   }
 
   deleteRutas(_id: string) {
-    return this.http.delete(this.URL_API + '/${_id}');
+    return this.http.delete(this.URL_API + '/' + _id);
   }
 }

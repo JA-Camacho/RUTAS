@@ -12,6 +12,7 @@ import { RutasComponent } from './rutas/rutas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PagEstComponent } from './pag-est/pag-est.component';
+import { PagAdminComponent } from './pag-admin/pag-admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { PagEstComponent } from './pag-est/pag-est.component';
     CategoriasComponent,
     RutasComponent,
     PagEstComponent,
+    PagAdminComponent,
   ],
   imports: [
     BrowserModule,

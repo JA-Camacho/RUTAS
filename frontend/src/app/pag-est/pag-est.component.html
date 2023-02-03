@@ -10,10 +10,10 @@
     </thead>
     <tbody>
         <tr *ngFor="let ruta of rutasService.rutas; let i = index">
-            <td>{{ i + 1 }}</td>
-            <td>{{ruta.sector}}</td>
-            <td>{{ruta.descripcion}}</td>
-            <td><ul *ngFor="let nombres of estudianteService.estudiantes">
+            <td class="align-middle">{{ i + 1 }}</td>
+            <td class="align-middle">{{ruta.sector}}</td>
+            <td class="align-middle">{{ruta.descripcion}}</td>
+            <td class="align-middle"><ul *ngFor="let nombres of estudianteService.estudiantes">
                 <li>{{nombres.nombres}}</li>
             </ul></td>
         </tr>

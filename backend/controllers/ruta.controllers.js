@@ -48,12 +48,14 @@ RutasCtrl.getRuta = async (req, res) =>{
 };
 
 RutasCtrl.editRuta = async (req, res) =>{
-    const { id } = req.params;
+  console.log(req.body.sector);  
+  const { id } = req.params;
     const ruta = {
         sector: req.body.sector,
         categoria: req.body.categoria,
         descripcion: req.body.descripcion
     };
+    
     await rutas.findByIdAndUpdate(id, {$set:ruta}, {new:true});
     res.json('status: ruta actualizado');
 };

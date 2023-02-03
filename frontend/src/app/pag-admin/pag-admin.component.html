@@ -1,0 +1,27 @@
+<table class="table table-bordered border-warning">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Sector</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ruta of rutasService.rutas; let i = index;">
+            <td class="align-middle">{{ i + 1 }}</td>
+            <td class="align-middle"><input type="text" value={{ruta.sector}} id={{ruta.sector}}></td>
+            <td class="align-middle">{{ruta.categoria}}</td>
+            <td class="align-middle">{{ruta.descripcion}}</td>
+            <td class="align-middle">
+                <button (click)="editRuta(ruta._id, ruta.sector, ruta.categoria, ruta.descripcion);" type="button" class="btn btn-outline-secondary">
+                    <i class="input-icon uil-edit"></i>
+                </button></td>
+            <td class="align-middle">
+                <button (click)="borrarRuta(ruta._id);" type="button" class="btn btn-outline-secondary">
+                    <i class="input-icon uil-trash-alt"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
