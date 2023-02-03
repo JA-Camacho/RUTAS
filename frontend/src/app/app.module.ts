@@ -11,6 +11,7 @@ import { CategoriasComponent } from './categorias/categorias.component';
 import { RutasComponent } from './rutas/rutas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { PagEstComponent } from './pag-est/pag-est.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     CategoriasComponent,
     RutasComponent,
+    PagEstComponent,
   ],
   imports: [
     BrowserModule,

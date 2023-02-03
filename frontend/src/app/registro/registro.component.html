@@ -21,7 +21,7 @@
 												<input type="password" name="contrai" class="form-style" placeholder="Contraseña" id="contraI" autocomplete="off" [(ngModel)]="contraI">
 												<i class="input-icon uil uil-lock-alt"></i>
 											</div>
-											<a href="#" class="btn mt-4">Ingresar</a>
+											<button (click)="ingresar();" href="#" class="btn mt-4">Ingresar</button>
 				      					</div>
 			      					</div>
 			      				</div>
@@ -59,7 +59,7 @@
 													<option *ngFor="let rutas of rutasService.rutas;" value={{rutas._id}}> {{rutas.sector}}</option>
 												</select>
 											</div>
-											<button (click)="registrar();" class="btn mt-4" > Registrarse</button>
+											<button (click)="registrar();" class="btn mt-4" href="#"> Registrarse</button>
 				      					</div>
 			      					</div>
 			      				</div>

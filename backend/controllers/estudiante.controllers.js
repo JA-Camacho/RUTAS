@@ -1,9 +1,11 @@
+const estudiante = require("../models/estudiante");
 const Estudiantes = require("../models/estudiante");
 const EstudianteCtrl = {};
 
 EstudianteCtrl.getEstudiantes = async (req, res) => {
   const estudiante = await Estudiantes.find();
   res.json(estudiante);
+  
 };
 EstudianteCtrl.createEstudiantes = async (req, res) => {
   const estudiante = new Estudiantes({
@@ -20,6 +22,15 @@ EstudianteCtrl.getEstudiante = async (req, res) => {
   console.log(req.params.id);
   const estudiante = await Estudiantes.findById(req.params.id);
   res.json(estudiante);
+};
+EstudianteCtrl.getEstudianteR = async (req, res) => {
+  const query = Estudiantes.find({"id_ruta" : req.params.id_ruta});
+  query.exec((error, estudiante) =>{
+    if(error){
+      res.send(error);
+    }
+    res.json(estudiante);
+  });
 };
 EstudianteCtrl.editEstudiante = async (req, res) => {
   const { id } = req.params;

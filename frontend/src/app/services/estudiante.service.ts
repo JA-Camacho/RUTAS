@@ -16,6 +16,14 @@ export class EstudianteService {
     return this.http.get(this.URL_API);
    }
 
+   getEstudiante(id: string) {
+    return this.http.get(this.URL_API + '/' + id);
+   }
+
+   getEstudianteR(id_ruta: string){
+    return this.http.get(this.URL_API + '/' + id_ruta);
+   }
+
    postEstudiantes(estudiantes: Estudiante){
     return this.http.post(this.URL_API, estudiantes);
    }

@@ -4,6 +4,7 @@ import { Estudiante } from '../models/estudiante';
 import { Rutas } from '../models/rutas';
 import { EstudianteService } from '../services/estudiante.service';
 import { RutasService } from '../services/rutas.service';
+import { Router } from '@angular/router';
 
 declare var M: any;
 @Component({
@@ -14,7 +15,8 @@ declare var M: any;
 export class RegistroComponent implements OnInit {
   constructor(
     public estudiantesService: EstudianteService,
-    public rutasService: RutasService
+    public rutasService: RutasService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.getEstudiantes();
@@ -49,7 +51,6 @@ export class RegistroComponent implements OnInit {
         this.flag = false;
         return alert('Este correo ya existe en nuestra base de datos');
       }
-      console.log('SI');
     });
     if (this.flag) {
       let estud = new Estudiante(
@@ -63,9 +64,20 @@ export class RegistroComponent implements OnInit {
         console.log(res);
         M.toast({ html: 'Usuario Guardado' });
         this.resetForm();
+        this.router.navigateByUrl('/registro');
       });
     }
   }
+  ingresar(){
+    this.estudiantesService.estudiantes.forEach((datos) => {
+      if(this.correoI === datos.correoInst && this.contraI === datos.contra)
+      {  
+        this.resetForm();
+        this.router.navigate(['/pag-est/', datos.id_rutas]);
+      }
+    })
+  }
+
   resetForm(form?: NgForm) {
     if (form) {
       form.reset();
