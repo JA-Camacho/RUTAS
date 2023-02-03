@@ -43,7 +43,7 @@ export class PagAdminComponent implements OnInit{
     })
   }
   editRuta(_id:string, sector: string, categoria: string, descripcion: string){
-    let prueba = document.getElementById(sector);
+    
     /*let rut = new Rutas(
       _id,
       sector,

@@ -11,8 +11,8 @@
         <tr *ngFor="let ruta of rutasService.rutas; let i = index;">
             <td class="align-middle">{{ i + 1 }}</td>
             <td class="align-middle"><input type="text" value={{ruta.sector}} id={{ruta.sector}}></td>
-            <td class="align-middle">{{ruta.categoria}}</td>
-            <td class="align-middle">{{ruta.descripcion}}</td>
+            <td class="align-middle"><input type="text" value={{ruta.categoria}} id={{ruta.categoria}}></td>
+            <td class="align-middle"><textarea id={{ruta._id}}>{{ruta.descripcion}}</textarea></td>
             <td class="align-middle">
                 <button (click)="editRuta(ruta._id, ruta.sector, ruta.categoria, ruta.descripcion);" type="button" class="btn btn-outline-secondary">
                     <i class="input-icon uil-edit"></i>

@@ -30,7 +30,8 @@ RutasCtrl.createRutas= async (req, res) =>{
     const ruta = new rutas({
         sector: req.body.sector,
         categoria: req.body.categoria,
-        descripcion: req.body.descripcion
+        descripcion: req.body.descripcion,
+        foto: req.body.foto
     });
     await ruta.save();
     res.json('Estado: ruta Guardado');
@@ -48,12 +49,12 @@ RutasCtrl.getRuta = async (req, res) =>{
 };
 
 RutasCtrl.editRuta = async (req, res) =>{
-  console.log(req.body.sector);  
   const { id } = req.params;
     const ruta = {
         sector: req.body.sector,
         categoria: req.body.categoria,
-        descripcion: req.body.descripcion
+        descripcion: req.body.descripcion,
+        foto: req.body.foto
     };
     
     await rutas.findByIdAndUpdate(id, {$set:ruta}, {new:true});
@@ -63,6 +64,5 @@ RutasCtrl.deleteRuta = async (req, res) =>{
     await rutas.findByIdAndRemove(req.params.id);
     res.json('status: ruta eliminado');
 };
-
 
 module.exports = RutasCtrl;
